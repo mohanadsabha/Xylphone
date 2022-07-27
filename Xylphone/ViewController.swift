@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     
     func playSound(button: String) {
         // finding the sound file in our app bundle
+        try! AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
         let url = Bundle.main.url(forResource: button, withExtension: "wav")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
